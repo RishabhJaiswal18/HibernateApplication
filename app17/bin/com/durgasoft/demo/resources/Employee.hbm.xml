@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.durgasoft.demo.pojo.Employee"
+		table="emp_details">
+		<composite-id>
+			<key-property name="empId" column="emp_id"></key-property>
+			<key-property name="firstName" column="first_name"></key-property>
+		</composite-id>
+		<property name="lastName" column="last_name"></property>
+		<property name="salary" column="salary"></property>
+		<property name="designation" column="designation"></property>
+	</class>
+</hibernate-mapping>
