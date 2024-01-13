@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.durgasoft.demo.entity.Employee"
+		table="emp_details">
+		<id name="eno" column="emp_id" type="int">
+			<generator class="identity" />
+		</id>
+		<property name="ename" column="emp_fullName" type="string"></property>
+		<property name="esal" column="emp_salary" type="float"></property>
+
+		<!-- Now from Here, we using component Mapping -->
+		<component name="acc"
+			class="com.durgasoft.demo.entity.Account">
+			<property name="accNo" column="acc_number" type="string"></property>
+			<property name="accName" column="acc_name" type="string"></property>
+			<property name="accType" column="acc_type" type="string"></property>
+		</component>
+
+		<component name="addr"
+			class="com.durgasoft.demo.entity.Address">
+			<property name="pno" column="plot_number" type="string"></property>
+			<property name="street" column="street" type="string"></property>
+			<property name="city" column="city" type="string"></property>
+		</component>
+	</class>
+</hibernate-mapping>
