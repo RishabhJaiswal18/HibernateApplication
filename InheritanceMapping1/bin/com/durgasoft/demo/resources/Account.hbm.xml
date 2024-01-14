@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.durgasoft.demo.entity.Account" table="account">
+		<id name="accNo" column="acc_number" />
+		<discriminator column="TYPE" type="string"></discriminator>
+		<property name="accName" column="acc_name"></property>
+		<property name="accType" column="acc_type"></property>
+
+		<subclass discriminator-value="std"
+			name="com.durgasoft.demo.entity.StudentAccount">
+			<property name="sid" column="std_id"></property>
+			<property name="sbranch" column="std_branch"></property>
+			<property name="smarks" column="std_marks"></property>
+		</subclass>
+		<subclass discriminator-value="emp"
+			name="com.durgasoft.demo.entity.EmployeeAccount">
+			<property name="eid" column="emp_id"></property>
+			<property name="esal" column="emp_salary"></property>
+			<property name="eaddr" column="emp_address"></property>
+		</subclass>
+	</class>
+
+</hibernate-mapping>
