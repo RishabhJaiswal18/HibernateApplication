@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.durgasoft.demo.entity.Payment" table="payment_details">
+		<id name="txId" column="tx_id">
+			<!-- <generator class="identity"></generator> -->
+		</id>
+		<property name="payDate" column="pay_date"></property>
+		<property name="payAmt" column="pay_amt"></property>
+
+		<joined-subclass
+			name="com.durgasoft.demo.entity.CardPayment" table="card_payment">
+			<key column="TX_ID"></key>
+			<property name="cardNo" column="card_number"></property>
+			<property name="expDate" column="exp_date"></property>
+		</joined-subclass>
+		<joined-subclass
+			name="com.durgasoft.demo.entity.ChequePayment" table="cheque_payment">
+			<key column="TX_ID"></key>
+			<property name="chequeNo" column="cheque_number"></property>
+			<property name="accNo" column="account_number"></property>
+		</joined-subclass>
+	</class>
+
+</hibernate-mapping>
