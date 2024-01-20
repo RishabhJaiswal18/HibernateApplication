@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.durgasoft.demo.entity.Person">
+		<id name="pname" column="name"></id>
+		<property name="paddr" column="address"></property>
+
+		<union-subclass
+			name="com.durgasoft.demo.entity.Employee" table="employee">
+			<property name="eid" column="emp_id"></property>
+			<property name="esal" column="emp_sal"></property>
+		</union-subclass>
+
+		<union-subclass
+			name="com.durgasoft.demo.entity.Customer" table="customer">
+			<property name="cid" column="c_id"></property>
+			<property name="cmobile" column="mobile"></property>
+		</union-subclass>
+	</class>
+</hibernate-mapping>
