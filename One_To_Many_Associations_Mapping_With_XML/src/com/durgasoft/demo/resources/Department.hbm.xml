@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.durgasoft.demo.entity.Department"
+		table="department">
+		<id name="did" column="dept_id"></id>
+		<property name="dname" column="dept_name" type="string"></property>
+		<set name="emps" cascade="all">
+			<key column="DID"></key>
+			<one-to-many class="com.durgasoft.demo.entity.Employee" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.durgasoft.demo.entity.Employee" table="employee">
+		<id name="eno" column="emp_number" type="int"></id>
+		<property name="ename" column="emp_name" type="string"></property>
+		<property name="esal" column="emp_salary" type="float"></property>
+		<property name="eaddr" column="emp_address" type="string"></property>
+	</class>
+</hibernate-mapping>
